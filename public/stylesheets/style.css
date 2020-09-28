@@ -1,0 +1,176 @@
+/******************Home*********************************/
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+}
+
+#navbar {
+  /*background-color: #FFFFFF;*/
+  background-color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  vertical-align: middle;
+  box-shadow: inset 0 25.6px 57.6px  rgba(.22, 22, 22, .22), 0 25.6px 57.6px 0 rgba(0, 0, 0, .22), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18), 0 4.8px 14.4px 0 rgba(0, 0, 0, .18);
+  z-index: 2;
+}
+
+a {
+  color: #00B7FF;
+}
+
+svg {
+  fill: black;
+  width: 32px;
+  height: 32px
+}
+
+.card {
+  border-radius: 12px;
+  display: inline-block;
+  width: 400px;
+  background-color: #4a6da7;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  justify-content: center;
+  margin: 5px;
+}
+
+.verses {
+  width: inherit;
+  overflow-x: hidden;
+  text-align: center;
+  background-color: #253855;
+  color: white;
+  border: none;
+  border-radius: 12px 12px 0 0;
+}
+
+.verses:hover {
+  overflow-x: scroll;
+}
+
+hr {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.scripture {
+  width: inherit;
+  height: 150px;
+  overflow-y: hidden;
+  color: black;
+  font-weight: bold;
+}
+
+.scripture:hover {
+  overflow-y: scroll;
+}
+
+.gem {
+  display: none;
+}
+
+.edit {
+  margin: auto;
+  vertical-align: middle;
+  display: inline-flex;
+  justify-self: center;
+}
+
+#dropdown {
+  margin: auto;
+  vertical-align: middle;
+  display: inline-flex;
+  justify-self: center;
+}
+
+
+
+/*create***************************************************/
+
+#createCard {
+  background-color: #4a6da7;
+  width: 500px;
+  margin: auto;
+  border-radius: 12px 12px 12px 12px;
+  border: none;
+  padding: 0;
+  height: max-content;
+}
+
+#createVerses {
+  width: inherit;
+  border: none;
+  border-radius: 12px 12px 0 0;
+  text-align: center;
+  font-size: 32px;
+  background-color: #ebeae7;
+  padding: 0px;
+  margin: 0;
+}
+
+#createScriptures {
+  width: inherit;
+  height: 110px;
+  margin: 20px 0px 0px 0px;
+  background-color: #ebeae7;
+  padding: 0;
+  border: 0;
+  margin-bottom: 20px;
+}
+
+#gemButton {
+  margin: auto;
+  vertical-align: middle;
+  display: flex;
+  justify-self: center;
+}
+
+#gemDiv {
+  display: none;
+  width: inherit;
+}
+
+#createGem {
+  display: inline-block;
+  width: inherit;
+  height: 110px;
+  margin: 20px 0px 0px 0px;
+  background-color: #ebeae7;
+  padding: 0;
+  border: 0;
+  vertical-align: middle;
+}
+
+#plus {
+  vertical-align: middle;
+}
+
+#submit {
+  margin: auto;
+  margin-top: 20px;
+  border: none;
+  border-radius: 0 0 12px 12px;
+  width: inherit;
+  text-align: center;
+}
+
+.tags {
+  flex-direction: row;
+  background-color: #253855;
+  color: black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 12px;
+  border: none;
+  border-radius: 2px;
+  width: max-content;
+  cursor: pointer;
+  width: max-content;
+  padding: 15px;
+}
