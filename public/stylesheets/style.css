@@ -54,6 +54,11 @@ svg {
   overflow-x: scroll;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 hr {
   padding: 0;
   margin: 0;
@@ -83,7 +88,7 @@ hr {
   justify-self: center;
 }
 
-#dropdown {
+.dropdown {
   margin: auto;
   vertical-align: middle;
   display: inline-flex;
@@ -161,16 +166,21 @@ hr {
   text-align: center;
 }
 
+#gemCollection {
+  display: flex;
+  flex-direction: column;
+}
+
 .tags {
-  flex-direction: row;
+  text-align: center;
+  flex-direction: column;
   background-color: #253855;
   color: black;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 12px;
   border: none;
   border-radius: 2px;
-  width: max-content;
+  width: inherit;
   cursor: pointer;
-  width: max-content;
   padding: 15px;
 }

@@ -35,6 +35,16 @@ router.get("/", function(req, res, next){
   })
 })
 
+router.get("/card/:verses", function(req, res, next){
+  Card.findOne({verses: req.params.verses}, function(err, card){ 
+    if(!err){
+      res.render("card", {
+          card: card
+      })
+    }
+  })  
+})
+
 router.get("/create", function(req, res, next){
 
   res.render("create")
