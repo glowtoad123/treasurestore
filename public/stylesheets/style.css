@@ -50,12 +50,12 @@ svg {
   border-radius: 12px 12px 0 0;
 }
 
-.verses:hover {
-  overflow-x: scroll;
-}
-
 a {
   text-decoration: none;
+  color: white;
+}
+
+a:hover {
   color: white;
 }
 

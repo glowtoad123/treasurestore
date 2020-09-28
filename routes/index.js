@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 
 /* GET home page. */
 /* router.get('/', function(req, res, next) {
@@ -59,6 +60,37 @@ router.post("/create", function(req, res, next){
   card.save()
   console.log(card.errors)
   res.redirect("/")
+})
+
+router.get("/edit/:id", function(req, res, next){
+  Card.findById(req.params.id, function(err, card){
+    if(!err){
+      res.render("edit", {
+        card: card
+      })
+    }
+  })
+})
+
+router.post("/edit/:id", function(req, res, next){
+  const id = req.params.id.replace(":", "")
+  Card.findByIdAndUpdate(id, {
+    verses: req.body.verses,
+    scripture: req.body.scriptures,
+    gem: req.body.gemList
+  },
+  {new: true},
+  function(err, card){
+      if(!err){
+          console.log("I'm working")
+          console.log(card)
+          console.log(card.verses)
+      } else if(err){
+          console.log("I do not want to work even if there is nothing wrong with your code")
+          console.log(err)
+      }
+  }
+  )
 })
 
 module.exports = router;
