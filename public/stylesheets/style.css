@@ -33,7 +33,7 @@ svg {
 .card {
   border-radius: 12px;
   display: inline-block;
-  width: 400px;
+  width: 300px;
   background-color: #4a6da7;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   justify-content: center;
@@ -101,7 +101,7 @@ hr {
 
 #createCard {
   background-color: #4a6da7;
-  width: 500px;
+  width: 300px;
   margin: auto;
   border-radius: 12px 12px 12px 12px;
   border: none;
@@ -172,7 +172,7 @@ hr {
 }
 
 .tags {
-  text-align: center;
+  text-align: left;
   flex-direction: column;
   background-color: #253855;
   color: black;
@@ -180,7 +180,13 @@ hr {
   margin: 12px;
   border: none;
   border-radius: 2px;
-  width: inherit;
-  cursor: pointer;
+  width: 250px;
   padding: 15px;
+  font-weight: bold;
+  float: right;
+}
+
+.removeButton {
+  width: max-content;
+  border: none;
 }

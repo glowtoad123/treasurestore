@@ -1,11 +1,10 @@
 <%- include("header") -%>
 
-<form action="/edit/:<%=card.id%>" method="post">
+<form action="/edit/:<%=card.id%>" method="POST">
     <div id="createCard">
         <input id="createVerses" value="<%= card.verses %>" type="text" placeholder="verses" name="verses">
         <textarea id="createScriptures" type="text" placeholder="scriptures" name="scriptures"><%= card.scripture %></textarea>
         <br>
-        <button type="button" onclick="addGem()" class="btn btn-primary" id="gemButton">add Gem</button>
         <div id="gemDiv">
             <textarea id="createGem" type="text" placeholder="gem"></textarea>
             <svg onclick="setGemList()" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-square" id="plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -15,10 +14,6 @@
             <br>
             <input id="connection" type="hidden" name="gemList" value="<%=card.gem%>">
             <div id="gemCollection">
-                <% var currentGems = card.gem.split("/item/") %>
-                <% currentGems.forEach(gem => { %>
-                    <p class="tags"><%= gem %></p>
-                <% }) %>
             </div>
             <!-- <textarea name="gemList" id="createGem" placeholder="gem"></textarea> -->
         </div>
@@ -27,29 +22,68 @@
 </form>
 
 <script>
-    function addGem(){
-        var gemDiv = document.getElementById("gemDiv")
-        gemDiv.style.display = "inline-block"
-    }
+        
+    var gemDiv = document.getElementById("gemDiv")
+    gemDiv.style.display = "inline-block"
 
     const createGemSelector = document.getElementById("createGem")
     const connection = document.getElementById("connection")
     const gemCollection = document.getElementById("gemCollection")
-    const gemList = []
+    const gemList = connection.value.split("/item/")
+    console.log(gemList)
+    
+    gemList.forEach(gem => {
+        const removeButton = document.createElement("button")
+            removeButton.setAttribute("type", "button")
+            removeButton.setAttribute("class", "close removeButton")
+            removeButton.setAttribute("aria-label", "Close")
+            removeButton.setAttribute("name", gem)
+            removeButton.setAttribute("onclick", "removeGem(event)")
+            const span = document.createElement("span")
+                span.setAttribute("aria-hidden", "true")
+                span.setAttribute("name", gem)
+                span.innerHTML = "&times;"
+            removeButton.appendChild(span)
+        const tag = document.createElement("p")
+            tag.setAttribute("class", "tags")
+            tag.setAttribute("value", gem)
+            tag.innerText = gem
+            tag.appendChild(removeButton)
+        gemCollection.appendChild(tag)
+    });
 
     function setGemList(){
+        console.log(gemList)
         gemList.push(createGemSelector.value)
+        const removeButton = document.createElement("button")
+            removeButton.setAttribute("type", "button")
+            removeButton.setAttribute("class", "close removeButton")
+            removeButton.setAttribute("aria-label", "Close")
+            removeButton.setAttribute("name", createGemSelector.value)
+            removeButton.setAttribute("onclick", "removeGem(event)")
+            const span = document.createElement("span")
+                span.setAttribute("aria-hidden", "true")
+                span.setAttribute("name", createGemSelector.value)
+                span.innerHTML = "&times;"
+            removeButton.appendChild(span)
         const tag = document.createElement("p")
-        tag.setAttribute("class", "tags")
-        tag.innerText = createGemSelector.value
+            tag.setAttribute("class", "tags")
+            tag.innerText = createGemSelector.value
+            tag.appendChild(removeButton)
         gemCollection.appendChild(tag)
         createGemSelector.value = ""
         console.log(gemList)
-        const gemString = gemList.toString()
-        console.log("gemString " + gemString)
-        connection.value = connection.value + gemList.join("/item/")
+        connection.value = gemList.join("/item/")
         console.log(connection.value)
-        window.location.replace("/")
+    }
+
+    function removeGem(event){
+        const position = gemList.indexOf(event.target.getAttribute("name"))
+        console.log(event.target.getAttribute("name"))
+        gemList.splice(position, 1)
+        console.log("gemList: " + gemList)
+        event.target.parentElement.parentElement.style.display = "none"
+        connection.value = gemList.join("/item/")
     }
 </script>
 

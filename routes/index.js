@@ -85,6 +85,7 @@ router.post("/edit/:id", function(req, res, next){
           console.log("I'm working")
           console.log(card)
           console.log(card.verses)
+          res.redirect("/card/" + card.verses)
       } else if(err){
           console.log("I do not want to work even if there is nothing wrong with your code")
           console.log(err)
