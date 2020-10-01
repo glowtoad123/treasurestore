@@ -26,12 +26,25 @@ mongoose.connect("mongodb+srv://admin-alonzo:test123@cluster0-gwd9g.mongodb.net/
 router.get("/", function(req, res, next){
   Card.find({}, function(err, card){
     if(!err){
-      console.log(card);
       res.render('index', {
         cardList: card
       })
     } else {
       console.log(err)
+    }
+  })
+})
+
+router.post("/delete", function(req, res, next){
+  const id = req.body.cardId
+  console.log(id)
+
+  Card.findByIdAndDelete(id, function(err){
+    if(!err){
+      console.log("item has been deleted")
+      res.redirect("/")
+    } else {
+      console.log("error, item has not been deleted")
     }
   })
 })

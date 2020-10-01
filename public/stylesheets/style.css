@@ -82,10 +82,9 @@ hr {
 }
 
 .edit {
-  margin: auto;
-  vertical-align: middle;
-  display: inline-flex;
-  justify-self: center;
+  display: inline-block;
+  margin: 5px;
+  margin-top: 0;
 }
 
 .dropdown {
@@ -95,7 +94,12 @@ hr {
   justify-self: center;
 }
 
-
+#deleteForm {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+  margin-top: 0;
+}
 
 /*create***************************************************/
 
