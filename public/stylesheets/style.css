@@ -41,7 +41,8 @@ svg {
 }
 
 .verses {
-  width: inherit;
+  width: -webkit-fill-available;
+  width: -moz-available;
   overflow-x: hidden;
   text-align: center;
   background-color: #253855;
